@@ -1,158 +1,141 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNA 2D Structure Alignment Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        #output {
+            font-family: monospace;
+            white-space: pre;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;RNA 2D Structure Alignment Tool&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 800px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f0f8ff; /* Light blue background */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>textarea {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#output {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: monospace;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: pre;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f0f0f0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #4CAF50;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #45a049;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;RNA 2D Structure Alignment Tool&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter two RNA 2D structures in dot-bracket notation:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="rna1" placeholder="Enter first RNA structure"&gt;&lt;/textarea&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="rna2" placeholder="Enter second RNA structure"&gt;&lt;/textarea&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="alignStructures()"&gt;Align&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Aligned Output:&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="output"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;How to use:&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;ol&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Paste your RNA 2D structures in dot-bracket notation into the text areas above.&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Click the "Align" button to see the aligned structures.&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;The output shows both structures aligned, with dashes (-) inserted for optimal alignment.&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Matching characters (dots and brackets) indicate similar structural elements.&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;li&gt;Sequence position numbers are displayed at regular intervals.&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/ol&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function alignStructures() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const rna1 = document.getElementById('rna1').value.trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const rna2 = document.getElementById('rna2').value.trim();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!rna1 || !rna2) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>alert('Please enter both RNA structures.');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const aligned = needlemanWunsch(rna1, rna2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>displayAlignment(aligned.seq1, aligned.seq2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function needlemanWunsch(seq1, seq2) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const match = 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const mismatch = -1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const gap = -2;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const m = seq1.length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const n = seq2.length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const dp = Array(m + 1).fill().map(() =&gt; Array(n + 1).fill(0));</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Initialize first row and column</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt;= m; i++) dp[i][0] = i * gap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let j = 0; j &lt;= n; j++) dp[0][j] = j * gap;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Fill the dp table</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt;= m; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let j = 1; j &lt;= n; j++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const matchScore = (seq1[i-1] === seq2[j-1]) ? match : mismatch;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>dp[i][j] = Math.max(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>dp[i-1][j-1] + matchScore,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>dp[i-1][j] + gap,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>dp[i][j-1] + gap</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Traceback</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let alignedSeq1 = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let alignedSeq2 = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let i = m, j = n;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>while (i &gt; 0 || j &gt; 0) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (i &gt; 0 &amp;&amp; j &gt; 0 &amp;&amp; dp[i][j] === dp[i-1][j-1] + (seq1[i-1] === seq2[j-1] ? match : mismatch)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq1 = seq1[i-1] + alignedSeq1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq2 = seq2[j-1] + alignedSeq2;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>i--;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>j--;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (i &gt; 0 &amp;&amp; dp[i][j] === dp[i-1][j] + gap) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq1 = seq1[i-1] + alignedSeq1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq2 = '-' + alignedSeq2;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>i--;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq1 = '-' + alignedSeq1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alignedSeq2 = seq2[j-1] + alignedSeq2;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>j--;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return { seq1: alignedSeq1, seq2: alignedSeq2 };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function displayAlignment(seq1, seq2) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let output = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const lineLength = 60;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; seq1.length; i += lineLength) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const s1 = seq1.slice(i, i + lineLength);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const s2 = seq2.slice(i, i + lineLength);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>output += `Seq1: ${s1}\n`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>output += `Seq2: ${s2}\n`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>output += `Pos : ${' '.repeat(Math.max(0, 5 - (i + 1).toString().length))}${i + 1}${' '.repeat(lineLength - 5)}${i + s1.length}\n\n`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('output').textContent = output;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+    <h1>RNA 2D Structure Alignment Tool</h1>
+    
+    <p>Enter two RNA 2D structures in dot-bracket notation:</p>
+    <textarea id="rna1" placeholder="Enter first RNA structure"></textarea>
+    <textarea id="rna2" placeholder="Enter second RNA structure"></textarea>
+    
+    <button onclick="alignStructures()">Align</button>
+    
+    <h2>Aligned Output:</h2>
+    <div id="output"></div>
+    
+    <h2>How to use:</h2>
+    <ol>
+        <li>Paste your RNA 2D structures in dot-bracket notation into the text areas above.</li>
+        <li>Click the "Align" button to see the aligned structures.</li>
+        <li>The output shows both structures aligned, with dashes (-) inserted for optimal alignment.</li>
+        <li>Matching characters (dots and brackets) indicate similar structural elements.</li>
+        <li>Sequence position numbers are displayed at regular intervals.</li>
+    </ol>
+
+    <script>
+        function alignStructures() {
+            const rna1 = document.getElementById('rna1').value.trim();
+            const rna2 = document.getElementById('rna2').value.trim();
+            
+            if (!rna1 || !rna2) {
+                alert('Please enter both RNA structures.');
+                return;
+            }
+
+            const aligned = needlemanWunsch(rna1, rna2);
+            displayAlignment(aligned.seq1, aligned.seq2);
+        }
+
+        function needlemanWunsch(seq1, seq2) {
+            const match = 1;
+            const mismatch = -1;
+            const gap = -2;
+
+            const m = seq1.length;
+            const n = seq2.length;
+            const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0));
+
+            // Initialize first row and column
+            for (let i = 0; i <= m; i++) dp[i][0] = i * gap;
+            for (let j = 0; j <= n; j++) dp[0][j] = j * gap;
+
+            // Fill the dp table
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    const matchScore = (seq1[i-1] === seq2[j-1]) ? match : mismatch;
+                    dp[i][j] = Math.max(
+                        dp[i-1][j-1] + matchScore,
+                        dp[i-1][j] + gap,
+                        dp[i][j-1] + gap
+                    );
+                }
+            }
+
+            // Traceback
+            let alignedSeq1 = '';
+            let alignedSeq2 = '';
+            let i = m, j = n;
+
+            while (i > 0 || j > 0) {
+                if (i > 0 && j > 0 && dp[i][j] === dp[i-1][j-1] + (seq1[i-1] === seq2[j-1] ? match : mismatch)) {
+                    alignedSeq1 = seq1[i-1] + alignedSeq1;
+                    alignedSeq2 = seq2[j-1] + alignedSeq2;
+                    i--;
+                    j--;
+                } else if (i > 0 && dp[i][j] === dp[i-1][j] + gap) {
+                    alignedSeq1 = seq1[i-1] + alignedSeq1;
+                    alignedSeq2 = '-' + alignedSeq2;
+                    i--;
+                } else {
+                    alignedSeq1 = '-' + alignedSeq1;
+                    alignedSeq2 = seq2[j-1] + alignedSeq2;
+                    j--;
+                }
+            }
+
+            return { seq1: alignedSeq1, seq2: alignedSeq2 };
+        }
+
+        function displayAlignment(seq1, seq2) {
+            let output = '';
+            const lineLength = 60;
+            
+            for (let i = 0; i < seq1.length; i += lineLength) {
+                const s1 = seq1.slice(i, i + lineLength);
+                const s2 = seq2.slice(i, i + lineLength);
+                
+                output += `Seq1: ${s1}\n`;
+                output += `Seq2: ${s2}\n`;
+                output += `Pos : ${' '.repeat(Math.max(0, 5 - (i + 1).toString().length))}${i + 1}${' '.repeat(lineLength - 5)}${i + s1.length}\n\n`;
+            }
+            
+            document.getElementById('output').textContent = output;
+        }
+    </script>
 </body>
 </html>
